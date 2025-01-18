@@ -4,16 +4,31 @@
   box-sizing: border-box;
   text-decoration: none;
   list-style: none;
+  font-family: "Arimo", Sans-serif;
+}
+html {
+  scroll-behavior: smooth;
 }
 body {
   height: 100vh;
   width: 100%;
   color: #4d4d4d;
   font-family: "Arimo", "Helvetica Neue", Arial, sans-serif;
+  background-attachment: fixed;
+
+  background-image: url(https://raz.la-studioweb.com/wp-content/uploads/2019/05/bg.jpg);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+header {
+  background-color: transparent;
+  position: relative;
 }
 
 nav {
   position: absolute;
+  background-color: transparent;
   top: 0;
   left: 0;
   width: 100%;
@@ -51,7 +66,7 @@ nav {
 .nav_menu_btn {
   margin-left: auto;
   font-size: 2rem;
-  color: #b71515;
+  color: #ffdb37;
   cursor: pointer;
   display: none;
   z-index: 20;
@@ -76,21 +91,12 @@ nav.fixed {
   height: 100%;
   overflow: hidden;
 }
-.background-images {
-  width: 100%;
-  height: 170%;
-  --translateY: -250px;
-  transform: translateY(var(--translateY));
-  background-image: url(https://raz.la-studioweb.com/wp-content/uploads/2019/05/bg.jpg);
-  background-position: center center;
-  background-size: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-repeat: no-repeat;
-}
+
 .elementor-section.elementor-section-boxed > .elementor-container {
   max-width: 1190px;
+  width: 100%;
+  height: 170%;
+  background: transparent;
 }
 .elementor-container {
   display: flex;
@@ -101,7 +107,7 @@ nav.fixed {
 .elementor-widget-wrap {
   position: relative;
   width: 100%;
-  padding: 120px 0 0 20px;
+  padding: 0px 0 0 20px;
 }
 .elementor-widget-image {
   text-align: left;
@@ -124,6 +130,7 @@ nav.fixed {
 }
 .elementor-element {
   margin: 40px 0;
+  background-color: #fff;
 }
 .elementor-widget-container h2 {
   font-family: "Arimo", Sans-serif;
@@ -152,12 +159,12 @@ nav.fixed {
   font-family: "Arimo", Sans-serif;
   font-weight: 400;
   color: #fff;
-  gap: 15px;
+  gap: 5px;
 }
 
 .elementor-element-text .widget-container ul li i {
   color: #ffdb37;
-  font-size: 18px;
+  font-size: 16px;
   position: relative;
   top: -0.05em;
   vertical-align: middle;
@@ -189,99 +196,118 @@ nav.fixed {
 #demo {
   margin-bottom: 45px;
   margin-top: 50px;
+  background-color: #fff;
 }
 .title-homepage {
   text-align: center;
+  padding: 10px;
   margin-bottom: 50px;
+  padding: 70px 0 55px 0;
 }
 .title-homepage h3 {
-  font-size: 90px;
+  color: #b7b7b7;
+  font-family: "Arimo", Sans-serif;
+  font-size: 14px;
   font-weight: 700;
-  color: #54d9e1;
-  line-height: 1;
-  font-weight: 800;
-  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  margin: 0 0 10px;
 }
 .title-homepage p {
-  font-size: 25px;
-  color: #000;
-  margin-top: 0;
-  margin-bottom: 1rem;
+  color: #1a1a1a;
+  font-family: "Arimo", Sans-serif;
+  font-size: 24px;
   font-weight: 700;
-  line-height: 40px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  text-align: center;
 }
-.item {
-  padding: 0.25px;
+/* card section */
+.section {
+  max-width: 1190px;
+  margin: auto;
+  display: flex;
+  gap: 20px;
+  padding: 20px;
 }
-a:active,
-a:hover {
-  outline-width: 0;
+
+.column {
+  padding: 15px;
+  flex: 1;
+  text-align: center;
 }
-#demo .item .demo-image {
+
+.banner {
   position: relative;
-  height: 400px;
   overflow: hidden;
-  border: 1px solid #f3f3f3;
+  box-shadow: 0px 0px 36px rgba(0, 0, 0, 0.2);
 }
-#demo .item .demo-image .img-scroll {
+
+.banner img {
+  width: 100%;
+  transition: transform 0.3s;
+}
+
+.banner:hover img {
+  transform: scale(1.1);
+}
+
+.banner-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  opacity: 0;
+  transition: all 0.35s ease;
+  z-index: 2; /* Ensures it appears above the overlay */
+}
+
+.banner:hover .banner-title {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  display: block;
-  background-size: 100%;
-  transition: all 4s linear;
-  background-repeat: no-repeat;
+  background: rgba(0, 0, 0, 0.934);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: 1; /* Overlay stays beneath the title */
 }
-.home1 {
-  background-image: url(images/01_Demo_01.jpg);
+
+.banner:hover::before {
+  opacity: 0.7;
 }
-.home2 {
-  background-image: url(images/02_Demo_02.jpg);
+
+.demo-title {
+  font-weight: 400;
+  margin-top: 15px;
+  font-size: 12px;
 }
-.home3 {
-  background-image: url(images/03_Demo_03.jpg);
+
+.demo-title a {
+  color: #1a1a1a;
+  text-decoration: none;
 }
-.home4 {
-  background-image: url(images/04_Demo_04.jpg);
+
+.demo-title a:hover {
+  text-decoration: underline;
 }
-.home5 {
-  background-image: url(images/05_Demo_05.jpg);
-}
-.home6 {
-  background-image: url(images/06_Demo_06.jpg);
-}
-.home7 {
-  background-image: url(images/07_Demo_07.jpg);
-}
-.home8 {
-  background-image: url(images/08_Demo_08.jpg);
-}
-.home9 {
-  background-image: url(images/09_Demo_09.jpg);
-}
-.home10 {
-  background-image: url(images/10_Demo_10.jpg);
-}
-.come1 {
-  background-image: url(images/11_Demo_11.jpg);
-}
-.come2 {
-  background-image: url(images/12_Demo_12.jpg);
-}
-#demo .item .wrap a h3 {
-  font-size: 16px;
-  font-family: "Plus Jakarta Sans", serif;
-  color: #000;
-  text-align: center;
-  font-weight: 600;
-  margin: 10px 0 0;
-}
-.item {
-  margin-bottom: 50px;
-}
-.row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+
+/* custom-section */
+.custom-section {
+  width: 1007px;
+  left: -15px;
+  background-color: #fff;
 }
 
 @media (max-width: 1699px) {
@@ -317,13 +343,6 @@ a:hover {
   .elementor-element-text .widget-container ul .elementor-icon-list-item {
     margin-bottom: 10px;
   }
-  #demo .item .demo-image {
-    position: relative;
-    height: 470px;
-    overflow: hidden;
-    box-shadow: 0px 8px 24px 0px rgba(149, 157, 165, 0.2);
-    border-radius: 5px;
-  }
 }
 
 @media (max-width: 992px) {
@@ -342,12 +361,14 @@ a:hover {
     align-items: center;
   }
   .nav__links {
+    width: 100%;
+    height: auto;
     display: none;
     flex-direction: column;
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #000;
+    background-color: #cabf48d2;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 1rem;
@@ -368,5 +389,54 @@ a:hover {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
+  }
+}
+@media (max-width: 768px) {
+  nav {
+    padding: 40px 40px 0;
+  }
+  .section {
+    flex-direction: column;
+    align-items: center;
+  }
+  .elementor-widget-wrap {
+    position: relative;
+    width: 100%;
+    padding: 30px 0 0 20px;
+  }
+  .elementor-container {
+    min-height: 600px;
+    padding: 0 100px;
+  }
+}
+@media (max-width: 450px) {
+  .column {
+    padding: 0;
+  }
+  .elementor-container {
+    min-height: 600px;
+    padding: 0;
+  }
+  .elementor-element-text {
+    width: auto;
+    margin: 20px;
+  }
+
+  .elementor-element-text .widget-container ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .elementor-element-text .widget-container ul li {
+    min-width: auto;
+    margin-bottom: 20px;
+  }
+  .btn button {
+    background-color: #fff;
+    padding: auto;
+    border: none;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
   }
 }
