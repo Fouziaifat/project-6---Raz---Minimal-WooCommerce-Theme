@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Arimo", Sans-serif;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  color: #4d4d4d;
+  font-family: "Arimo", "Helvetica Neue", Arial, sans-serif;
+}
+
+.elementor-section .elementor-container {
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+}
+
+.elementor-row {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.elementor-column {
+  position: relative;
+  min-height: 1px;
+  display: flex;
+}
+
+.elementor-widget {
+  position: relative;
+}
+
+.elementor-widget-wrap > .elementor-element {
+  width: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.image-01,
+.image-02,
+.image-03 {
+  position: absolute;
+}
+
+.elementor-9043 .elementor-element.elementor-element-5eac7ced .image-01 {
+  z-index: 1;
+  transform: translateX(8%);
+  left: 8%;
+}
+
+.elementor-9043 .elementor-element.elementor-element-5eac7ced .image-02 {
+  z-index: 2;
+  bottom: 0;
+}
+
+.elementor-9043 .elementor-element.elementor-element-5eac7ced .image-03 {
+  z-index: 3;
+}
+
+.elementor-widget-image .elementor-image img {
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.elementor a {
+  box-shadow: none;
+  text-decoration: none;
+}
+
+@media (max-width: 1024px) {
+  .elementor-9043
+    .elementor-element.elementor-element-5d7305c4
+    .elementor-image
+    img {
+    width: 338px;
+  }
+
+  .elementor-9043
+    .elementor-element.elementor-element-5c31c6a5
+    .elementor-image
+    img {
+    width: 228px;
+  }
+
+  .elementor-9043
+    .elementor-element.elementor-element-783b6ba3
+    .elementor-image
+    img {
+    width: 201px;
+  }
+
+  .elementor-9043
+    .elementor-element.elementor-element-3644b2a9
+    .elementor-spacer-inner {
+    height: 20px;
+  }
+
+  .elementor-9043 .elementor-element.elementor-element-5eac7ced .image-01 {
+    z-index: 1;
+    transform: translateX(8%);
+    left: 8%;
+  }
+}
+
+.elementor-widget-image .elementor-image > a,
+.elementor-widget-image .elementor-image figure > a {
+  display: inline-block;
+}
+
+a {
+  color: inherit;
+}
